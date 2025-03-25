@@ -7,6 +7,8 @@ import java.util.NoSuchElementException;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,11 +27,13 @@ import jakarta.servlet.http.HttpSession;
 @Controller
 public class DepartmentController {
 
+	private static final Logger logger=LoggerFactory.getLogger(DepartmentController.class);
 	@Autowired
 	private DepartmentService serv;
 
 	@GetMapping("/")
 	public String home() {
+        logger.error("This is an ERROR message — something went wrong.");
 
 		return "home";
 	}
